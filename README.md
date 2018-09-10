@@ -44,7 +44,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had intitally downloaded the beta of Xcode 10. So some of the UI was different. I just decided to revert to the previous version because I came across a feature that Xcode 10 beta couldn't provide   
 
 ## License
 
