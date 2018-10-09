@@ -1,19 +1,16 @@
 //
-//  MoviesViewController.swift
+//  PopularViewController.swift
 //  flix_app2
 //
-//  Created by Robert Bolt on 9/7/18.
+//  Created by Robert Bolt on 10/8/18.
 //  Copyright © 2018 Robert Bolt. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+class PopularViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     
     var movies: [Movie] = []
     //var movie: Movie!
@@ -21,8 +18,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-        
+
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(MoviesViewController.didPullToRefresh(_:)), for: .valueChanged)
         
@@ -40,15 +36,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func fetchMovies(){
-        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+        MovieApiManager().popularMovies { (movies: [Movie]?, error: Error?) in
             if let movies = movies {
                 self.movies = movies
-                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
         }
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -59,24 +54,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-   /* func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:  "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let overview = movie["overview"] as! String
-        cell.titleLabel.text = title
-        cell.overviewLabel.text = overview
-        
-        let posterPathString = movie["poster_path"] as! String
-        let baseURLString = "https://image.tmdb.org/t/p/w500"
-        let posterURL = URL(string: baseURLString + posterPathString )!
-        cell.posterImageView.af_setImage(withURL: posterURL)
-        return cell
-    }*/
+    /* func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier:  "MovieCell", for: indexPath) as! MovieCell
+     let movie = movies[indexPath.row]
+     let title = movie["title"] as! String
+     let overview = movie["overview"] as! String
+     cell.titleLabel.text = title
+     cell.overviewLabel.text = overview
+     
+     let posterPathString = movie["poster_path"] as! String
+     let baseURLString = "https://image.tmdb.org/t/p/w500"
+     let posterURL = URL(string: baseURLString + posterPathString )!
+     cell.posterImageView.af_setImage(withURL: posterURL)
+     return cell
+     }*/
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMovieCell", for: indexPath) as! PopularMovieCell
         
         cell.movie = movies[indexPath.row]
         
@@ -98,15 +93,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
