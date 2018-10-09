@@ -182,20 +182,20 @@ I had trouble with some conflicting restraints. I just ahd to relarn how to fix 
 
 **Flix** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
 The following **required** user stories are complete:
 
-- [ ] Create a movie model (+2pt)
-- [ ] Implement the movie model (+2pt)
-- [ ] Implement property observers (+2pt)
-- [ ] Create a basic API Client (+2pt)
+- [x] Create a movie model (+2pt)
+- [x] Implement the movie model (+2pt)
+- [x] Implement property observers (+2pt)
+- [x] Create a basic API Client (+2pt)
 
 The following **additional** user stories are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+- [x] Tab for popular movies (+1pt)
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -206,17 +206,17 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![flix3_gif](https://user-images.githubusercontent.com/22280621/46646874-678f4700-cb52-11e8-8256-3a4d039e0952.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+This lab was pretty straight forward. I didn't have any real difficulties.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2018] [Robert Bolt]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
